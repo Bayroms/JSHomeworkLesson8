@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Создать в html список состоящий из 3-х произвольных элементов li -->
+    <ul>
+        <li>List 1</li>
+        <li>List 2</li>
+        <li>List 3</li>
+    </ul>
+    <button class="button">Create new list</button>
+    <button class="deleteBtn">Delete first element</button>
+    <button class="buttonToggle">Toggle me</button>
+
+    <script>
+        // Нужно создать кнопку которая будет добавлять элементы списка с текстом “новый элемент списка”
+        const ulEl = document.querySelector('ul');
+        const buttonEl = document.querySelector('.button');
+        buttonEl.addEventListener('click', (e) => {
+            e.preventDefault();
+            const newLi = document.createElement('li')
+            newLi.textContent = 'New list element'
+            ulEl.append(newLi)
+        });
+        // Создать кнопку, которая будет удалять первый элемент из созданного списка
+        const buttonDelEl = document.querySelector('.deleteBtn');
+        buttonDelEl.addEventListener('click', (e) => {
+            ulEl.firstElementChild.remove();
+        });
+        // Создать кнопку, при клике на которую ей добавляется-убирается класс “click”
+        const buttonTgEl = document.querySelector('.buttonToggle');
+        buttonTgEl.addEventListener('click', (e) => {
+            e.target.classList.toggle('click')
+        })
+    </script>
+</body>
+
+</html>
